@@ -1,5 +1,6 @@
 import sqlite3
 
+BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = BASE_DIR / "data" / "ah.db"
 
 
