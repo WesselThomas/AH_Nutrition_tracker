@@ -2,7 +2,7 @@ import sqlite3
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
-DB_PATH = BASE_DIR / "data" / "ah.db"
+DB_NAME = BASE_DIR / "data" / "ah.db"
 
 
 def get_connection():
@@ -104,7 +104,7 @@ def save_nutrition(product_id, nutrition, raw_text):
 
 
 def show_products(limit=10):
-    conn = sqlite3.connect(DB_NAME)
+    conn = get_connection()
     cur = conn.cursor()
 
     cur.execute("""
@@ -123,7 +123,7 @@ def show_products(limit=10):
 
 
 def show_nutrition(limit=10):
-    conn = sqlite3.connect(DB_NAME)
+    conn = get_connection()
     cur = conn.cursor()
 
     cur.execute("""
@@ -142,7 +142,7 @@ def show_nutrition(limit=10):
 
 
 def get_product_id(product_name):
-    conn = sqlite3.connect(DB_NAME)
+    conn = get_connection()
     cur = conn.cursor()
 
     cur.execute("""
@@ -164,7 +164,7 @@ def get_product_id(product_name):
 
 
 def get_product_std_nutrition(product_id):
-    conn = sqlite3.connect(DB_NAME)
+    conn = get_connection()
     cur = conn.cursor()
 
     cur.execute("""
