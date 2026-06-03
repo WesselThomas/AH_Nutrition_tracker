@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from models import ProductIn
+from backend.models import ProductIn
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from db import get_connection
-import services.basket_services as service
+from backend.db import get_connection
+import backend.services.basket_services as service
 
 app = FastAPI()
 
