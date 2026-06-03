@@ -100,5 +100,10 @@ def get_totals(user_id: str = "default"):
 
     return dict(row)
 
+
+@app.head("/")
+def head():
+    return {}
+
 # uvicorn main:app --reload
 
