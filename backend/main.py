@@ -5,7 +5,7 @@ from fastapi.responses import FileResponse
 from backend.models import ProductIn
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from backend.db import get_connection
+from backend.db import get_connection, init_db
 import backend.services.basket_services as service
 
 app = FastAPI()
@@ -100,6 +100,11 @@ def get_totals(user_id: str = "default"):
 
     return dict(row)
 
+
+@app.on_event("startup")
+def startup():
+    init_db()
+    
 
 @app.head("/")
 def head():
