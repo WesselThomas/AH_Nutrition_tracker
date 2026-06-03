@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111827;
+    color: white;
+}
+
+header {
+    padding: 16px;
+    text-align: center;
+    background: #1f2937;
+}
+
+main {
+    padding: 12px;
+}
+
+.card {
+    background: #1f2937;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: none;
+}
+
+.result,
+.basket-item {
+    padding: 10px;
+    margin-top: 8px;
+    background: #374151;
+    border-radius: 8px;
+}
+
+button {
+    padding: 8px 12px;
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+#totals {
+    position: sticky;
+    bottom: 0;
+    background: #22c55e;
+    color: black;
+    padding: 16px;
+    font-weight: bold;
+}
