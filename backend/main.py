@@ -1,4 +1,7 @@
 from fastapi import FastAPI
+from pathlib import Path
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from backend.models import ProductIn
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -7,11 +10,15 @@ import backend.services.basket_services as service
 
 app = FastAPI()
 
-app.mount("/frontend", StaticFiles(directory="../frontend"), name="frontend")
+BASE_DIR = Path(__file__).resolve().parent
+FRONTEND_DIR = BASE_DIR.parent / "frontend"
+
+app.mount("/frontend", StaticFiles(directory=FRONTEND_DIR), name="frontend")
+
 
 @app.get("/")
 def home():
-    return FileResponse("../frontend/index.html")
+    return FileResponse(FRONTEND_DIR / "index.html")
 
 
 @app.get("/basket")
