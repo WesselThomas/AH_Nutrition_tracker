@@ -8,7 +8,7 @@ from collections import deque
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-from db import init_db, save_product, save_nutrition
+from backend.db import init_db, save_product, save_nutrition
 
 
 # =========================================================

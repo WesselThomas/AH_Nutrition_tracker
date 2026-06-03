@@ -1,4 +1,4 @@
-from db import get_connection
+from backend.db import get_connection
 
 def get_user_basket(user_id):
     conn = get_connection()
