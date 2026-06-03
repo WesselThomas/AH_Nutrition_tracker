@@ -99,12 +99,7 @@ def get_totals(user_id: str = "default"):
         }
 
     return dict(row)
-
-
-@app.on_event("startup")
-def startup():
-    init_db()
-    
+  
 
 @app.head("/")
 def head():
