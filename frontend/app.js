@@ -10,13 +10,13 @@ async function loadBasket() {
     <div class="basket-item">
         <strong>${item.name}</strong><br><br>
 
-        Quantity:
+        Quantity (g or ml):
         <input
             type="number"
             min="0"
             value="${item.quantity}"
             onkeydown="if(event.key === 'Enter') changeQuantity('${item.product_id}', this.value)"
-        > g
+        >
 
         <button onclick="removeProduct('${item.product_id}')">
             Remove
