@@ -48,6 +48,12 @@ def delete(user_id: str, product_id: str):
     return {"status": "deleted"}
 
 
+@app.delete("/basket/clear")
+def clear_basket(user_id: str):
+    service.delete_all_products(user_id)
+    return {"status": "deleted"}
+
+
 @app.get("/products/search")
 def search_products(q: str):
     conn = get_connection()

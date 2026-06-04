@@ -6,26 +6,32 @@ async function loadBasket() {
 
     const container = document.getElementById("basket");
 
-    container.innerHTML = basket.map(item => `
-        <div class="basket-item">
-            <strong>${item.name}</strong><br><br>
+    container.innerHTML = `
+        ${basket.map(item => `
+            <div class="basket-item">
+                <strong>${item.name}</strong><br><br>
 
-            <div class="quantity-row">
-                <label>Grams / ml:</label>
+                <div class="quantity-row">
+                    <label>Grams / ml:</label>
 
-                <input
-                    type="number"
-                    min="0"
-                    value="${item.quantity}"
-                    onkeydown="if(event.key === 'Enter') changeQuantity('${item.product_id}', this.value)"
-                >
+                    <input
+                        type="number"
+                        min="0"
+                        value="${item.quantity}"
+                        onkeydown="if(event.key === 'Enter') changeQuantity('${item.product_id}', this.value)"
+                    >
 
-                <button onclick="removeProduct('${item.product_id}')">
-                    Remove
-                </button>
+                    <button onclick="removeProduct('${item.product_id}')">
+                        Remove
+                    </button>
+                </div>
             </div>
-        </div>
-    `).join("");
+        `).join("")}
+
+        <button class="clear-basket-btn" onclick="clearBasket()">
+            Clear basket
+        </button>
+    `;
 
     loadTotals();
 }
@@ -93,7 +99,9 @@ async function searchProducts(query) {
     document.getElementById("searchResults").innerHTML =
         products.map(product => `
             <div class="result">
-                ${product.name}
+                <div class="result-name">
+                    ${product.name}
+                </div>
 
                 <button onclick="addProduct('${product.id}')">
                     Add
@@ -119,6 +127,18 @@ async function addProduct(productId) {
 
     document.getElementById("searchInput").value = "";
     document.getElementById("searchResults").innerHTML = "";
+
+    loadBasket();
+}
+
+
+async function clearBasket() {
+
+    if (!confirm("Clear entire basket?")) return;
+    
+    await fetch(`/basket/clear?user_id=${USER_ID}`, {
+        method: "DELETE"
+    });
 
     loadBasket();
 }

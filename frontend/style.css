@@ -1,8 +1,16 @@
+/* =========================
+   BASE
+========================= */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #111827;
     color: white;
+}
+
+main {
+    padding: 12px;
 }
 
 header {
@@ -11,9 +19,9 @@ header {
     background: #1f2937;
 }
 
-main {
-    padding: 12px;
-}
+/* =========================
+   CARD LAYOUT
+========================= */
 
 .card {
     background: #1f2937;
@@ -21,6 +29,15 @@ main {
     padding: 12px;
     margin-bottom: 12px;
 }
+
+.card h2 {
+    margin-bottom: 8px;
+    color: white;
+}
+
+/* =========================
+   FORM ELEMENTS
+========================= */
 
 input {
     width: 100%;
@@ -30,12 +47,89 @@ input {
     border: none;
 }
 
+/* =========================
+   SEARCH RESULTS
+========================= */
+
 .result {
-    padding: 10px;
-    margin-top: 8px;
-    background: #374151;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 10px 12px;
+    margin-bottom: 8px;
+
+    background: #0f172a;
     border-radius: 8px;
 }
+
+.result:not(:last-child) {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.18);
+    padding-bottom: 12px;
+}
+
+.result-name {
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+}
+
+.result button {
+    flex-shrink: 0;
+}
+
+/* =========================
+   BASKET
+========================= */
+
+#basket {
+    border-top: 2px solid rgba(255, 255, 255, 0.18);
+    margin-top: 8px;
+    padding-top: 8px;
+}
+
+.basket-item {
+    padding: 12px 0;
+    border-top: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.basket-item:first-child {
+    border-top: none;
+}
+
+/* =========================
+   CONTROLS (basket row)
+========================= */
+
+.quantity-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-row input {
+    width: 6ch;
+    min-width: 6ch;
+    padding: 4px;
+}
+
+.quantity-row button {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.quantity-row button:hover {
+    background: #666;
+}
+
+/* =========================
+   BUTTONS (generic)
+========================= */
 
 button {
     padding: 8px 12px;
@@ -43,11 +137,17 @@ button {
     cursor: pointer;
 }
 
+/* =========================
+   TOTALS (sticky footer)
+========================= */
+
 #totals {
     position: sticky;
     bottom: 0;
+
     background: #22c55e;
     color: black;
+
     padding: 16px;
     font-weight: bold;
 }
@@ -63,36 +163,24 @@ button {
     white-space: nowrap;
 }
 
-.quantity-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+/* =========================
+   CLEAR BASKET BUTTON
+========================= */
 
-.quantity-row input {
-    width: 6ch;             
-    min-width: 6ch;
-    padding: 4px;
-}
+.clear-basket-btn {
+    margin-top: 12px;
+    width: 100%;
 
-.quantity-row button {
-    background: #444;        
+    background: #7f1d1d;
     color: white;
+
     border: none;
-    padding: 4px 10px;
-    border-radius: 6px;
+    padding: 10px;
+    border-radius: 8px;
+
     cursor: pointer;
 }
 
-.quantity-row button:hover {
-    background: #666;
-}
-
-.basket-item {
-    padding: 12px 0;
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.basket-item:last-child {
-    border-bottom: none;
+.clear-basket-btn:hover {
+    background: #991b1b;
 }
