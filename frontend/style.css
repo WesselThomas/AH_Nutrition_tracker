@@ -52,3 +52,14 @@ button {
     padding: 16px;
     font-weight: bold;
 }
+
+.totals-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    justify-content: center;
+}
+
+.totals-grid span {
+    white-space: nowrap;
+}

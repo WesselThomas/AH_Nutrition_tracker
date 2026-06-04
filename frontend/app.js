@@ -64,10 +64,12 @@ async function loadTotals() {
     const totals = await res.json();
 
     document.getElementById("totals").innerHTML = `
-        Calories: ${Math.round(totals.energy_kcal)} kcal |
-        Protein: ${Math.round(totals.protein_g)} g |
-        Carbs: ${Math.round(totals.carbs_g)} g |
-        Fat: ${Math.round(totals.fat_g)} g
+        <div class="totals-grid">
+            <span>🔥 ${Math.round(totals.energy_kcal)} kcal</span>
+            <span>🥩 ${Math.round(totals.protein_g)} g</span>
+            <span>🍞 ${Math.round(totals.carbs_g)} g</span>
+            <span>🥑 ${Math.round(totals.fat_g)} g</span>
+        </div>
     `;
 }
 
