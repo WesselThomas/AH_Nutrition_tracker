@@ -30,8 +30,7 @@ input {
     border: none;
 }
 
-.result,
-.basket-item {
+.result {
     padding: 10px;
     margin-top: 8px;
     background: #374151;
@@ -62,4 +61,38 @@ button {
 
 .totals-grid span {
     white-space: nowrap;
+}
+
+.quantity-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-row input {
+    width: 6ch;             
+    min-width: 6ch;
+    padding: 4px;
+}
+
+.quantity-row button {
+    background: #444;        
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.quantity-row button:hover {
+    background: #666;
+}
+
+.basket-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.basket-item:last-child {
+    border-bottom: none;
 }

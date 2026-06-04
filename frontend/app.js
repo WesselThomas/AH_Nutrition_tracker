@@ -7,22 +7,25 @@ async function loadBasket() {
     const container = document.getElementById("basket");
 
     container.innerHTML = basket.map(item => `
-    <div class="basket-item">
-        <strong>${item.name}</strong><br><br>
+        <div class="basket-item">
+            <strong>${item.name}</strong><br><br>
 
-        Quantity (g or ml):
-        <input
-            type="number"
-            min="0"
-            value="${item.quantity}"
-            onkeydown="if(event.key === 'Enter') changeQuantity('${item.product_id}', this.value)"
-        >
+            <div class="quantity-row">
+                <label>Grams / ml:</label>
 
-        <button onclick="removeProduct('${item.product_id}')">
-            Remove
-        </button>
-    </div>
-`).join("");
+                <input
+                    type="number"
+                    min="0"
+                    value="${item.quantity}"
+                    onkeydown="if(event.key === 'Enter') changeQuantity('${item.product_id}', this.value)"
+                >
+
+                <button onclick="removeProduct('${item.product_id}')">
+                    Remove
+                </button>
+            </div>
+        </div>
+    `).join("");
 
     loadTotals();
 }
@@ -65,10 +68,10 @@ async function loadTotals() {
 
     document.getElementById("totals").innerHTML = `
         <div class="totals-grid">
-            <span>🔥 ${Math.round(totals.energy_kcal)} kcal</span>
-            <span>🥩 ${Math.round(totals.protein_g)} g</span>
-            <span>🍞 ${Math.round(totals.carbs_g)} g</span>
-            <span>🥑 ${Math.round(totals.fat_g)} g</span>
+            <span>Calories 🔥: ${Math.round(totals.energy_kcal)} kcal</span>
+            <span>Proteins 🥩: ${Math.round(totals.protein_g)} g</span>
+            <span>Carbs 🍞: ${Math.round(totals.carbs_g)} g</span>
+            <span>Fats 🥑: ${Math.round(totals.fat_g)} g</span>
         </div>
     `;
 }
