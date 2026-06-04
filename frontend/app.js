@@ -144,6 +144,13 @@ async function clearBasket() {
 }
 
 
+document.addEventListener("focusin", (e) => {
+    if (e.target.matches(".basket-item input[type='number']")) {
+        e.target.select();
+    }
+});
+
+
 document
     .getElementById("searchInput")
     .addEventListener("input", (e) => {
