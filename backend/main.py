@@ -2,9 +2,9 @@ from fastapi import FastAPI
 from pathlib import Path
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
-from backend.models import ProductIn
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+from backend.models import ProductIn
 from backend.db import get_connection, init_db
 import backend.services.basket_services as service
 
