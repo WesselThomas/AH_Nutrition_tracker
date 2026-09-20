@@ -21,16 +21,4 @@ Data modelling — Separating product metadata from nutritional information
 API design — Endpoints for product search, basket management, and nutritional calculations
 HTTP & web protocols — Working with requests, responses, headers, and external web services
 
-Architecture
-Albert Heijn
-     │
-     ▼
-Python Scraper ──► SQLite Database
-                       │
-                       ▼
-                    FastAPI
-                       │
-                       ▼
-                 Web Interface
-
 The project was built as a useful tool for daily life and a practical way to develop experience with Python backend development, APIs, databases, web scraping, and deploying a complete application.
